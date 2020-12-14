@@ -1,7 +1,6 @@
 //Constants
 const container = document.querySelector('#container');
 const reset = document.querySelector('.reset');
-const grid = document.querySelectorAll('.square');
 
 //Functions
 function removeAllChildNodes(parent) {
@@ -10,9 +9,11 @@ function removeAllChildNodes(parent) {
     }
 }
 
+//Still need to add user input validation
 function newGrid() {
-     let gridNumber = Number(prompt('How many squares per side would you like?'));
-     startingGrid(gridNumber);
+    let gridNumber = Number(prompt('How many squares per side would you like?'));
+
+    startingGrid(gridNumber);
 }
 
 function startingGrid(gridNumber) {
@@ -24,7 +25,6 @@ function startingGrid(gridNumber) {
 
         container.style.gridTemplateColumns = `repeat(${gridNumber}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
-
         container.insertAdjacentElement('beforeend', square);
 
         square.addEventListener('mouseenter', () => {
@@ -39,4 +39,5 @@ reset.addEventListener('click', () => {
     newGrid();
 });
 
+//Run on start
 startingGrid(16);
